@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MOVE_THRESHOLD = 4;
 
     private String name;
     private int moveCount = 0;
@@ -9,6 +10,12 @@ public class Car {
     public Car(String name) {
         this.name = name;
         validateName(name);
+    }
+
+    public void increaseMoveCount(int randomNum) {
+        if (randomNum >= MOVE_THRESHOLD) {
+            moveCount++;
+        }
     }
 
     @Override

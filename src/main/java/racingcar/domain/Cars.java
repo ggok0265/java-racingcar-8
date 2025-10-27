@@ -2,9 +2,13 @@ package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.utils.RandomGenerator;
+
+import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
+    private final RandomGenerator randomGenerator = new RandomGenerator();
 
     public Cars(String rawNames) {
         validateNames(rawNames);
@@ -17,5 +21,15 @@ public class Cars {
         if (rawNames == null || rawNames.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차 이름 목록이 비어있습니다.");
         }
+    }
+
+    public void race() {
+        cars.forEach(car -> car.increaseMoveCount(randomGenerator.generateRandomNumber(0, 9)));
+    }
+
+    public String getRacingResults() {
+        return cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.joining("\n"));
     }
 }
