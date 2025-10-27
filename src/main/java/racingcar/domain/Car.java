@@ -11,6 +11,11 @@ public class Car {
         validateName(name);
     }
 
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(moveCount);
+    }
+
     public static void validateName(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("이름은 5자를 초과할 수 없습니다.");
