@@ -4,12 +4,20 @@ public class Car {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MOVE_THRESHOLD = 4;
 
-    private String name;
+    private final String name;
     private int moveCount = 0;
 
     public Car(String name) {
         this.name = name;
         validateName(name);
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void increaseMoveCount(int randomNum) {

@@ -32,4 +32,16 @@ public class Cars {
                 .map(Car::toString)
                 .collect(Collectors.joining("\n"));
     }
+
+    public String getWinners() {
+        int maxMovedCount = cars.stream()
+                .map(Car::getMoveCount)
+                .max(Integer::compareTo)
+                .orElse(0);
+
+        return cars.stream()
+                .filter(car -> car.getMoveCount() == maxMovedCount)
+                .map(Car::getName)
+                .collect(Collectors.joining(","));
+    }
 }

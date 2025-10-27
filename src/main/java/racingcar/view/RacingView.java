@@ -12,4 +12,12 @@ public class RacingView {
         System.out.println("시도할 횟수는 몇 회인가요?");
         return Integer.parseInt(Console.readLine());
     }
+
+    public static void printResults(String result) {
+        System.out.println(result + "\n");
+    }
+
+    public static void printWinners(String winners) {
+        System.out.println("최종 우승자 : " + winners);
+    }
 }
